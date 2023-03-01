@@ -1,12 +1,13 @@
 # Description: File for the group project
 # Authors: Ben, Brad, Devan, Jared, Miles, Spencer
 
-# Create Order class: Miles
+# Create Order class: Devan
 # Create Person class: Spencer
 # Create Customer (Person) class: Devan
 # Create Queue: Brad
 # Create Dictionary: Jared
 # Print and Sort: Ben
+# Proofreading: Miles
 
 # Goal: Be done by Monday, Mar 6
 
