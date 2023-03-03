@@ -1,4 +1,4 @@
-# Bradley Grover
+# Bradley Grover, Jared Rosenlund, Spencer Boris, Miles Hutchinson, Ben Brittain, Devan Judd
 # IS 303 Section 002
 # GROUP Assignment: Hamburger Door Dash
 # Code Description: track how many burgers each driver delivers
