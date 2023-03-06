@@ -2,10 +2,10 @@
 # Authors: Ben, Brad, Devan, Jared, Miles, Spencer
 
 # Create Order class: Devan
-# Create Person class: Spencer
+# Create Person class: Jared
 # Create Customer (Person) class: Devan
 # Create Queue: Brad
-# Create Dictionary: Jared
+# Create Dictionary: Spencer
 # Print and Sort: Ben
 # Proofreading: Miles
 
@@ -14,5 +14,3 @@
 print("Hey guys :)")
 print("Testing")
 print("This is the new stuff.")
-
-print("This is another test")
