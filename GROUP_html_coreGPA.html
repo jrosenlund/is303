@@ -1,0 +1,115 @@
+<!--
+
+Bradley Grover, Jared Rosenlund, Spencer Boris, Miles Hutchinson, Ben Brittain, Devan Judd 
+IS 303 Section 002
+GROUP Assignment: HTML CORE GPA
+Code Description: Modify Core_GPA_calculator (python) to html form
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //This function is called when the user clicks on the calcGPA button
+        function calcGPA()
+        {
+            //Extract the values from the HTML inputs by their assigned id and assigns them to variables
+            //The value extracted is converted from a string to a float/decimal
+            floIS201 = parseFloat(document.getElementById("is201Grade").value);
+            floACC200 = parseFloat(document.getElementById("acc200Grade").value);
+            floIS303= parseFloat(document.getElementById("is303Grade").value);
+            floOverallGPA = parseFloat(document.getElementById("overallGPA").value);
+            floLast30GPA = parseFloat(document.getElementById("last30GPA").value);
+            floEssay = parseInt(document.getElementById("essay").value);
+
+            //calculates new gpa
+            floFinalGPA = ((floIS201 * .3) + (floIS303 * .3) + (floACC200 * .05) + (floOverallGPA * .12) + (floLast30GPA * .18) + (floEssay * .05)).toFixed(2);
+
+            //Display the calculated GPA to the HTML label named "coreGPA"
+            document.getElementById("coreGPA").innerHTML = "Core GPA is " + floFinalGPA;
+        }
+
+        //Add an event listener to the "Calculate GPA" button
+        document.getElementById("calcButton").addEventListener("click", calcGPA);
+    </script>
+</head>
+<body>
+    <form>
+        <!-- Input for Overall GPA: -->
+        <label for="overallGPA">Overall GPA:</label>
+        <input type="number" step="0.01" id="overallGPA" name="overallGPA" min="0" max="4.0" required>
+
+        <!-- Input for Last 30 Credits GPA: -->
+        <label for="last30GPA">Last 30 Credits GPA:</label>
+        <input type="number" step="0.01" id="last30GPA" name="last30GPA" min="0" max="4.0" required>
+
+        <!-- Input for ACC 200 Grade: -->
+        <label for="acc200Grade">Accounting 200 Grade:</label>
+        <select id="acc200Grade" name="acc200Grade">
+            <option value="4.0">A</option>
+            <option value="3.7">A-</option>
+            <option value="3.3">B+</option>
+            <option value="3.0">B</option>
+            <option value="2.7">B-</option>
+            <option value="2.3">C+</option>
+            <option value="2.0">C</option>
+            <option value="1.7">C-</option>
+            <option value="1.3">D+</option>
+            <option value="1.0">D</option>
+            <option value="0.0">F</option>
+        </select>
+
+        <!-- Input for IS 201 Grade: -->
+        <label for="is201Grade">IS 201 Grade:</label>
+        <select id="is201Grade" name="is201Grade">
+            <option value="4.0">A</option>
+            <option value="3.7">A-</option>
+            <option value="3.3">B+</option>
+            <option value="3.0">B</option>
+            <option value="2.7">B-</option>
+            <option value="2.3">C+</option>
+            <option value="2.0">C</option>
+            <option value="1.7">C-</option>
+            <option value="1.3">D+</option>
+            <option value="1.0">D</option>
+            <option value="0.0">F</option>
+        </select>
+
+        <!-- Input for IS 303 Grade: -->
+        <label for="is303Grade">IS 303 Grade:</label>
+        <select id="is303Grade" name="is303Grade">
+            <option value="4.0">A</option>
+            <option value="3.7">A-</option>
+            <option value="3.3">B+</option>
+            <option value="3.0">B</option>
+            <option value="2.7">B-</option>
+            <option value="2.3">C+</option>
+            <option value="2.0">C</option>
+            <option value="1.7">C-</option>
+            <option value="1.3">D+</option>
+            <option value="1.0">D</option>
+            <option value="0.0">F</option>
+        </select>
+
+        <!-- Input for Essay Grade: -->
+        <label for="essay">Essay Score:</label>
+        <select id="essay">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+
+        <!--insert html tag for displaying the calcualted GPA -->
+        <button type= "button" onclick = "calcGPA()">Calculate GPA</button>
+        <label id="coreGPA"></label>
+         
+    </form>
+</body>
+</html>
