@@ -1,0 +1,115 @@
+<!--insert html tags -->
+<!--Description: IS Core GPA calculator-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //This function is called when the user clicks on the calcGPA button
+        function calcGPA()
+        {
+            //Extract the values from the HTML inputs by their assigned id and assigns them to variables
+            //The value extracted is converted from a string to a float/decimal
+            fIS201 = parseFloat(document.getElementById("is201Grade").value);
+            fACC200 = parseFloat(document.getElementById("acc200Grade").value);
+            fIS303= parseFloat(document.getElementById("is303Grade").value);
+            fOverallGPA = parseFloat(document.getElementById("overallGPA").value);
+            fLast30GPA = parseFloat(document.getElementById("last30GPA").value);
+            fEssay = parseInt(document.getElementById("essay").value);
+
+            //calculates new gpa
+            fFinalGPA = ((fIS201 * .3) + (fIS303 * .3) + (fACC200 * .05) + (fOverallGPA * .12) + (fLast30GPA * .18) + (fEssay * .05)).toFixed(2);
+
+            //Display the calculated GPA to the HTML label named "coreGPA"
+            document.getElementById("coreGPA").innerHTML = "Core GPA is " + fFinalGPA;
+        }
+    </script>
+</head>
+<body style="font-family: Verdana, Geneva, Tahoma, sans-serif;">
+    <!--Bolded title-->
+    <p style="font-weight: bold;">IS Core GPA Calculator</p>
+    <br>
+    <form>
+        <!--insert html tags-->
+        <!--Overall GPA--> 
+        Overall GPA (Ex. 3.4):  <input type="number" id="overallGPA" max="4" min="0" step=".1">
+        <br>
+        <!--Last 30 GPA-->
+        Last 30 credits GPA (Ex. 3.6):  <input type="number" id="last30GPA" max="4" min="0" step=".1">
+        <br>
+        <!--Acc 200 Grade-->
+        Accounting 200 Grade:  <select id="acc200Grade">
+            <!--Dropdown menu, repeat for each-->
+            <option>[Select]</option>
+            <option value="4.0">A</option>
+            <option value="3.7">A-</option>
+            <option value="3.4">B+</option>
+            <option value="3.0">B</option>
+            <option value="2.7">B-</option>
+            <option value="2.4">C+</option>
+            <option value="2.0">C</option>
+            <option value="1.7">C-</option>
+            <option value="1.4">D+</option>
+            <option value="1.0">D</option>
+            <option value="0.7">D-</option>
+            <option value="4.0">E</option>
+        </select>
+        <br>
+        <!--IS 201 Grade-->
+        IS 201 Grade:  <select id="is201Grade">
+            <option>[Select]</option>
+            <option value="4.0">A</option>
+            <option value="3.7">A-</option>
+            <option value="3.4">B+</option>
+            <option value="3.0">B</option>
+            <option value="2.7">B-</option>
+            <option value="2.4">C+</option>
+            <option value="2.0">C</option>
+            <option value="1.7">C-</option>
+            <option value="1.4">D+</option>
+            <option value="1.0">D</option>
+            <option value="0.7">D-</option>
+            <option value="4.0">E</option>
+        </select>
+        <br>
+        <!--IS 303 Grade-->
+        IS 303 Grade:  <select id="is303Grade">
+            <option>[Select]</option>
+            <option value="4.0">A</option>
+            <option value="3.7">A-</option>
+            <option value="3.4">B+</option>
+            <option value="3.0">B</option>
+            <option value="2.7">B-</option>
+            <option value="2.4">C+</option>
+            <option value="2.0">C</option>
+            <option value="1.7">C-</option>
+            <option value="1.4">D+</option>
+            <option value="1.0">D</option>
+            <option value="0.7">D-</option>
+            <option value="4.0">E</option>
+        </select>
+        <br>
+        <!--Essay-->
+        Essay Score:  <select id="essay">
+            <option>[Select]</option>
+            <option value="4">4</option>
+            <option value="3">3</option>
+            <option value="3">2</option>
+            <option value="3">1</option>
+            <option value="2">0</option>
+        </select>
+        <br>
+        <br>
+        <!--Function button-->
+        <button type="button" onclick="calcGPA()">Calculate GPA</button>
+        <br>
+        <!--Insert html tag for displaying the calcualted GPA--> 
+        <!--Make result bold-->
+        <label style="font-weight: bold;" id="coreGPA"></label>
+    </form>
+</body>
+</html>
