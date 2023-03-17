@@ -1,0 +1,120 @@
+<!-- Author: Benjamin Brittain -->
+<!-- Description: This code makes a website that accepts entried for varoius grades. A java script takes the entered
+grades to calculate an end gpa for applying into the I.S program.  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //This function is called when the user clicks on the calcGPA button
+        function calcGPA()
+        {
+            //Extract the values from the HTML inputs by their assigned id and assigns them to variables
+            //The value extracted is converted from a string to a float/decimal
+            fIS201 = parseFloat(document.getElementById("is201Grade").value);
+            fACC200 = parseFloat(document.getElementById("acc200Grade").value);
+            fIS303= parseFloat(document.getElementById("is303Grade").value);
+            fOverallGPA = parseFloat(document.getElementById("overallGPA").value);
+            fLast30GPA = parseFloat(document.getElementById("last30GPA").value);
+            fEssay = parseInt(document.getElementById("essay").value);
+
+            //calculates new gpa
+            fFinalGPA = ((fIS201 * .3) + (fIS303 * .3) + (fACC200 * .05) + (fOverallGPA * .12) + (fLast30GPA * .18) + (fEssay * .05)).toFixed(2);
+
+            //Display the calculated GPA to the HTML label named "coreGPA"
+            document.getElementById("coreGPA").innerHTML = "Core GPA is " + fFinalGPA;
+        }
+    </script>
+</head>
+<body>
+    <form>
+        <!-- creating a label for IS201 -->
+        <label>Select IS201 Grade:</label>
+        <!-- Using the select tag so the user can select their grade -->
+        <select name="is201Grade" id="is201Grade">
+            <!-- Giving options for a grade. The value of the letter will be changed to the gpa equivalent -->
+            <option value="4.0">A</option>
+            <option value="3.7">A-</option>
+            <option value="3.4">B+</option>
+            <option value="3.0">B</option>
+            <option value="2.7">B-</option>
+            <option value="2.4">C+</option>
+            <option value="2.0">C</option>
+            <option value="1.7">C-</option>
+            <option value="1.4">D+</option>
+            <option value="1.0">D</option>
+            <option value=".7">D-</option>
+            <option value="0">F</option>
+        </select>
+        <br>
+        <!-- Making the label for acc200 -->
+        <label>Select Acc200 Grade:</label>
+        <select name="acc200Grade" id="acc200Grade">
+            <!-- Giving options for a grade. The value of the letter will be changed to the gpa equivalent -->
+            <option value="4.0">A</option>
+            <option value="3.7">A-</option>
+            <option value="3.4">B+</option>
+            <option value="3.0">B</option>
+            <option value="2.7">B-</option>
+            <option value="2.4">C+</option>
+            <option value="2.0">C</option>
+            <option value="1.7">C-</option>
+            <option value="1.4">D+</option>
+            <option value="1.0">D</option>
+            <option value=".7">D-</option>
+            <option value="0">F</option>
+        </select>
+        <br>
+        <!-- Making the label for is303 -->
+        <label>Select IS 303 Grade:</label>
+        <select name="is303Grade" id="is303Grade">
+            <!-- Giving options for a grade. The value of the letter will be changed to the gpa equivalent -->
+            <option value="4.0">A</option>
+            <option value="3.7">A-</option>
+            <option value="3.4">B+</option>
+            <option value="3.0">B</option>
+            <option value="2.7">B-</option>
+            <option value="2.4">C+</option>
+            <option value="2.0">C</option>
+            <option value="1.7">C-</option>
+            <option value="1.4">D+</option>
+            <option value="1.0">D</option>
+            <option value=".7">D-</option>
+            <option value="0">F</option>
+        </select>
+        <br>
+        <!-- making label for overall gpa -->
+        <label for="overallGPA">OverallGPA:</label>
+        <!-- getting input from the user about what their gpa is -->
+        <input type="number" name="overallGPA" id="overallGPA" min="0" max="4" step=".1">  
+        <br>
+        <!-- making label for last 30 gpa -->
+        <label for="last30GPA">last30GPA:</label>
+        <!-- Getting last 30 gpa from the user -->
+        <input type="number" name="last30GPA" id="last30GPA" min="0" max="4" step=".1">
+        <br>
+        <!-- Making the label for essay grade -->
+        <label>Select Essay Grade:</label>
+        <!-- using the select tag so that the user can select their grade -->
+        <select name="essay" id="essay">
+            <!-- Giving options for a grade. The value of the letter will be changed to the gpa equivalent -->
+            <option value="4">4</option>
+            <option value="3">3</option>
+            <option value="2">2</option>
+            <option value="1">1</option>
+            <option value="0">0</option>
+            
+        </select>
+        <br>
+        <!-- The button already put here - it calls the function above on the click -->
+        <button type="button" onclick="calcGPA()">Calculate GPA</button>
+        <br>
+        <!-- Making a label with teh id of coreGPA so that it can be reached by the function and display the gpa-->
+        <label id="coreGPA">Core GPA:</label>
+
+    </form>
+</body>
+</html>
